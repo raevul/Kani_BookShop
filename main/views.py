@@ -1,7 +1,21 @@
 from django.shortcuts import render
-from main.models import Book
+from main.models import Book, Genre, Author
 
 
 def index(request):
-    books = Book.objects.all()
-    return render(request, 'main/index.html', {'books': books})
+    genres = Genre.objects.all()
+    return render(request, 'main/index.html', {'genres': genres})
+
+
+def book_list(request, slug):
+    books = Book.objects.filter(genre__slug=slug)
+    return render(request, 'main/book_list.html', {'books': books})
+
+
+""" pk -> primary key"""
+
+
+def author_detail(request, pk):
+    author = Author.objects.get(pk=pk)
+    author_books = author.books.all()
+    return render(request, 'main/author_detail.html', {'author': author, 'books': author_books})
