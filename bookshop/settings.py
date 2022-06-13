@@ -83,8 +83,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bookshop_db',
-        'USER': 'hello',
-        'PASSWORD': '1',
+        'USER': 'ular',
+        'PASSWORD': '01122001',
         'HOST': '127.0.0.1',
         'PORT': 5432,
     }
